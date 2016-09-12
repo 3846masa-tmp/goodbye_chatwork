@@ -148,7 +148,7 @@ module GoodbyeChatwork
             end
             ac = self.account(i['aid'])
             csv << [Time.at(i['tm']).iso8601,
-              (ac ? ac['name'] : i['aid']), i['msg']]
+              (ac ? ac['name'] : i['aid']), (ac ? ac['cwid'] : i['aid']), i['aid'], i['msg']]
           end
           break if r.size < CHAT_SIZE
           fid = r.last['id']
